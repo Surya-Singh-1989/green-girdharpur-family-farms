@@ -181,6 +181,34 @@ export default function Home() {
             </div>
           </div>
         </section>
+                {/* Photos */}
+        <section id="photos" className="section" aria-labelledby="photos-title">
+          <div className="container">
+            <h2 id="photos-title" className="h2">
+              Photos
+            </h2>
+            <p className="p">
+              A few early photos from our farm. We will keep updating this gallery over time.
+            </p>
+
+            <div className="photoGrid" role="list">
+              {Array.from({ length: 8 }).map((_, i) => {
+                const n = i + 1;
+                return (
+                  <div className="photoCard" role="listitem" key={n}>
+                    <img
+                      className="photoImg"
+                      src={`/photos/farm-${n}.jpeg`}
+                      alt={`Green Girdharpur Family Farms photo ${n}`}
+                      loading="lazy"
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
 
         {/* Contact */}
         <section id="contact" className="section" aria-labelledby="contact-title">

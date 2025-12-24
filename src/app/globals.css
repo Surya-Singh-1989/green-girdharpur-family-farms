@@ -340,6 +340,38 @@ a {
   border-top: 1px solid var(--border);
 }
 
+/* Photos */
+.photoGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.photoCard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.photoImg {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .photoGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .photoImg {
+    height: 160px;
+  }
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .heroGrid {
