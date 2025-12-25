@@ -90,34 +90,69 @@ a {
   text-decoration: underline;
 }
 
-/* Header */
 .header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: rgba(251, 251, 246, 0.88);
-  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 10;
+
+  background-image: url("/brand/logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;     /* important: no cropping */
+
+  background-color: #f3f6ee;    /* light earthy tint behind the logo */
+  min-height: 120px;
+
   border-bottom: 1px solid var(--border);
 }
 
+
+.header::before {
+  display: none;
+}
+
+
+
 .headerInner {
+  position: relative; /* above overlay */
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   gap: 18px;
-  padding: 14px 0;
+
+  min-height: 350px; /* match header */
+  padding: 20px 0;
+  
+}
+
+
+
+.brandRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brandLogo {
+  display: none;
 }
 
 .brandName {
   font-weight: 800;
   letter-spacing: -0.01em;
+  color: #fff;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+  line-height: 1.15;
 }
 
 .brandMeta {
   font-size: 13px;
-  color: var(--muted);
   margin-top: 2px;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
 }
+
+
+
 
 .nav {
   display: flex;
@@ -128,16 +163,17 @@ a {
 
 .navLink {
   font-size: 14px;
-  color: var(--muted);
+  font-weight: 800;
+  color: var(--green-2);
   text-decoration: none;
   padding: 8px 10px;
   border-radius: 999px;
 }
-.navLink:hover {
-  color: var(--text);
-  background: rgba(47, 109, 58, 0.08);
-}
 
+.navLink:hover {
+  color: var(--green-2);
+  background: rgba(47, 109, 58, 0.12);
+}
 /* Hero */
 .hero {
   padding: 48px 0 34px;
@@ -362,6 +398,23 @@ a {
   object-fit: cover;
   display: block;
 }
+
+/* Produce image (inside Produce cards) */
+.produceImgWrap {
+  margin-top: 12px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: rgba(243, 246, 238, 0.6);
+}
+
+.produceImg {
+  width: 100%;
+  height: 140px; /* smaller card-like height */
+  object-fit: cover;
+  display: block;
+}
+
 
 @media (max-width: 900px) {
   .photoGrid {

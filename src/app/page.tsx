@@ -10,8 +10,7 @@ export default function Home() {
 
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-    const [resIndex, setResIndex] = useState(0);
-
+  const [resIndex, setResIndex] = useState(0);
 
   // Auto-advance every 3.5 seconds
   useEffect(() => {
@@ -23,7 +22,8 @@ export default function Home() {
 
     return () => clearInterval(t);
   }, [paused, slides.length]);
-    useEffect(() => {
+
+  useEffect(() => {
     if (paused) return;
 
     const t = setInterval(() => {
@@ -33,16 +33,12 @@ export default function Home() {
     return () => clearInterval(t);
   }, [paused]);
 
-
   return (
     <div className="page">
       {/* Header + navigation */}
       <header className="header">
         <div className="container headerInner">
-          <div className="brand">
-            <div className="brandName">Basant Family Farms</div>
-            <div className="brandMeta">Girdharpur (Near Narnaul), Haryana</div>
-          </div>
+          <div className="brand"></div>
 
           <nav className="nav" aria-label="Primary">
             <a className="navLink" href="#photos">
@@ -65,7 +61,63 @@ export default function Home() {
       </header>
 
       <main>
-        {/* Photos Carousel (Top) */}
+        {/* Hero */}
+        <section className="hero">
+          <div className="container heroGrid">
+            <div className="heroCopy">
+              <h1 className="h1">Basant Family Farms</h1>
+              <p className="subhead">
+                A family farm near Narnaul—trusted staples, green vegetables, and seasonal fruits.
+              </p>
+
+              <div className="ctaRow" role="group" aria-label="Primary actions">
+                <a className="btn btnPrimary" href="#contact">
+                  Enquire availability
+                </a>
+                <a className="btn btnSecondary" href="#contact">
+                  Contact us
+                </a>
+                <a className="btn btnTertiary" href="#produce">
+                  Check produce
+                </a>
+              </div>
+            </div>
+
+            <aside className="heroCard" aria-label="Quick info">
+              <div className="cardTitle">Quick Info</div>
+              <ul className="list">
+                <li>
+                  <span className="label">Location:</span> Girdharpur (Near Narnaul), Haryana
+                </li>
+               
+              </ul>
+              <div className="note">
+                This is a trial site. We will refine details and add updated photos over time.
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        {/* Farm Summary */}
+        <section className="section" aria-labelledby="summary-title">
+          <div className="container">
+            <h2 id="summary-title" className="h2">
+              Farm Summary
+            </h2>
+            <p className="p">
+              Basant Family Farms is a family-run farm rooted in the fields near Narnaul. We focus on
+              growing clean, seasonal produce with care and consistency—so what reaches your home feels
+              fresh, simple, and trustworthy.
+            </p>
+            <p className="p">
+              Our approach combines local experience with practical, responsible farming methods. As we
+              grow, we want to build long-term relationships with people who value quality and honesty in
+              what they eat.
+            </p>
+          </div>
+        </section>
+
+        {/* Photos Carousel (moved here: after Farm Summary) */}
         <section id="photos" className="section" aria-labelledby="photos-title">
           <div className="container">
             <h2 id="photos-title" className="h2">
@@ -150,70 +202,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Hero */}
-        <section className="hero">
-          <div className="container heroGrid">
-            <div className="heroCopy">
-              <h1 className="h1">Basant Family Farms</h1>
-              <p className="subhead">
-                A family farm near Narnaul—trusted staples, green vegetables, and seasonal fruits.
-              </p>
-
-              <div className="ctaRow" role="group" aria-label="Primary actions">
-                <a className="btn btnPrimary" href="#contact">
-                  Enquire availability
-                </a>
-                <a className="btn btnSecondary" href="#contact">
-                  Contact us
-                </a>
-                <a className="btn btnTertiary" href="#produce">
-                  Check produce
-                </a>
-              </div>
-            </div>
-
-            <aside className="heroCard" aria-label="Quick info">
-              <div className="cardTitle">Quick Info</div>
-              <ul className="list">
-                <li>
-                  <span className="label">Location:</span> Girdharpur (Near Narnaul), Haryana
-                </li>
-                <li>
-                  <span className="label">Cereals:</span> Sharbati Wheat
-                </li>
-                <li>
-                  <span className="label">Vegetables:</span> Mint, Spinach, Lemon, Brinjal, Carrots, Muli
-                </li>
-                <li>
-                  <span className="label">Fruits:</span> Mangoes, Amrud
-                </li>
-              </ul>
-              <div className="note">
-                This is a trial site. We will refine details and add updated photos over time.
-              </div>
-            </aside>
-          </div>
-        </section>
-
-        {/* Farm Summary */}
-        <section className="section" aria-labelledby="summary-title">
-          <div className="container">
-            <h2 id="summary-title" className="h2">
-              Farm Summary
-            </h2>
-            <p className="p">
-              Basant Family Farms is a family-run farm rooted in the fields near Narnaul.
-              We focus on growing clean, seasonal produce with care and consistency—so what reaches
-              your home feels fresh, simple, and trustworthy.
-            </p>
-            <p className="p">
-              Our approach combines local experience with practical, responsible farming methods. As we
-              grow, we want to build long-term relationships with people who value quality and honesty in
-              what they eat.
-            </p>
-          </div>
-        </section>
-
         {/* Produce */}
         <section id="produce" className="section sectionAlt" aria-labelledby="produce-title">
           <div className="container">
@@ -279,14 +267,16 @@ export default function Home() {
               <div className="practice">
                 <div className="practiceTitle">Soil testing</div>
                 <div className="practiceText">
-                  We use soil testing to better understand our fields and make more informed decisions for each season.
+                  We use soil testing to better understand our fields and make more informed decisions for
+                  each season.
                 </div>
               </div>
 
               <div className="practice">
                 <div className="practiceTitle">Compost and organic manure</div>
                 <div className="practiceText">
-                  We use compost and organic manure where suitable to support soil health and long-term productivity.
+                  We use compost and organic manure where suitable to support soil health and long-term
+                  productivity.
                 </div>
               </div>
 
@@ -319,15 +309,13 @@ export default function Home() {
           </div>
         </section>
 
-                {/* Permanent Residents */}
+        {/* Permanent Residents */}
         <section id="residents" className="section" aria-labelledby="residents-title">
           <div className="container">
             <h2 id="residents-title" className="h2">
               Permanent Residents
             </h2>
-            <p className="p">
-              A few familiar faces that are part of daily life on the farm.
-            </p>
+            <p className="p">A few familiar faces that are part of daily life on the farm.</p>
 
             <div
               aria-label="Permanent residents carousel"
@@ -399,7 +387,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
 
         {/* Contact */}
         <section id="contact" className="section" aria-labelledby="contact-title">
